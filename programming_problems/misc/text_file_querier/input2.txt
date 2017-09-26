@@ -1,0 +1,13 @@
+These runtimes are independent of the collision resolution mechanisms we use, with the exception of insertion using separate chaining, where we could encounter worst-case O(1) performance. However, we might still encounter worst-case O(n) insertion with separate chaining, depending on our implementation, because we usually search through the hash table before inserting a new element, to ensure that it's not already present in the hash table.
+
+Note: When dealing with strings, it's a bit sloppy to call our runtime O(1) or O(n), as these runtimes neglect the fact that our hash function has to do O(k) work to come up with a hash value. (Here, k is the length of the string being processed.)
+
+In today's slides, we saw a proof that when using quadratic probing, we are guaranteed to hit an empty spot in the hash table if the following conditions are met:
+
+    The table size is prime.
+
+    The hash table is at least half empty.
+
+I also mentioned that if we dynamically grow a hash table when it gets half full, we need to re-hash all the elements. (Why? Why not just leave them where they are?)
+
+Finally, recall that the space complexity for a hash table is O(n), where n is the number of elements it contains.
